@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen · data analyst portfolio (static)</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6f9fc;
+            font-family: "Inter", sans-serif;
+            color: #1e293b;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        /* header / nav */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2.5rem;
+            background: white;
+            border-bottom: 1px solid #e9f0f5;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0f2b3d, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .recruiter-badge {
+            background: #e6f0ff;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1e4fd9;
+            border: 1px solid #b9d3fd;
+        }
+
+        .recruiter-badge i {
+            margin-right: 0.3rem;
+        }
+
+        /* main intro */
+        .hero {
+            padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+            background: #ffffff;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+
+        .pill {
+            background: #eef2f6;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .pill i {
+            margin-right: 0.4rem;
+            color: #2563eb;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(145deg, #13294e, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #334155;
+            max-width: 70%;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #1e3a8a;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,55,130,0.15);
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+        }
+
+        .btn-outline {
+            background: white;
+            color: #1e293b;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-outline:hover {
+            border-color: #2563eb;
+            background: #f8fafc;
+        }
+
+        /* metrics strip */
+        .metric-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: #f0f7ff;
+            margin: 1.8rem 2.5rem 0 2.5rem;
+            padding: 1.5rem 2rem;
+            border-radius: 28px;
+            justify-content: space-around;
+            border: 1px solid #d9e9ff;
+        }
+
+        .metric-item {
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #0b2b4f;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #3a546d;
+            letter-spacing: 0.02rem;
+        }
+
+        /* dashboard area (static charts) */
+        .dashboard {
+            padding: 2rem 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-desc {
+            color: #475569;
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+            padding-left: 1rem;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem 1rem 1.2rem;
+            box-shadow: 0 8px 20px -8px rgba(0,34,64,0.08);
+            border: 1px solid #eaf1f8;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: #24425f;
+        }
+
+        .static-chart-placeholder {
+            background: #f4f9ff;
+            border-radius: 16px;
+            padding: 1rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 1.2rem;
+            height: 170px;
+        }
+
+        .bar {
+            width: 40px;
+            background: linear-gradient(0deg, #2563eb, #4895f0);
+            border-radius: 12px 12px 4px 4px;
+            transition: height 0.2s;
+            box-shadow: 0 -2px 8px rgba(37,99,235,0.3);
+        }
+
+        .bar-label {
+            text-align: center;
+            font-size: 0.7rem;
+            margin-top: 6px;
+            color: #1e405e;
+        }
+
+        .doughnut-static {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 160px;
+            gap: 2rem;
+            background: #f0f6fe;
+            border-radius: 100px;
+            padding: 1rem;
+        }
+
+        .legend-color {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+
+        .tool-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .tool-tag {
+            background: #e3edfc;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #134b9e;
+            font-weight: 500;
+        }
+
+        /* NEW: EDUCATION SECTION */
+        .education-section {
+            padding: 1rem 2.5rem 1.5rem 2.5rem;
+        }
+
+        .edu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .edu-card {
+            background: #f2f8ff;
+            border-radius: 28px;
+            padding: 1.5rem 2rem;
+            flex: 1 1 240px;
+            border: 1px solid #d2e3fc;
+        }
+
+        .edu-card i {
+            color: #2563eb;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .edu-card h3 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-card .meta {
+            color: #3d618a;
+            font-size: 0.9rem;
+            margin: 0.25rem 0 0.5rem;
+        }
+
+        .edu-card p {
+            color: #2e405b;
+        }
+
+        /* NEW: SKILLS SECTION (detailed) */
+        .skills-section {
+            padding: 0.5rem 2.5rem 2rem 2.5rem;
+        }
+
+        .skills-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 1.8rem 0 0.5rem;
+        }
+
+        .skill-category {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.3rem 1.5rem;
+            box-shadow: 0 6px 14px rgba(0, 30, 60, 0.05);
+            border: 1px solid #ddecfe;
+        }
+
+        .skill-category h4 {
+            color: #0e2f50;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #adccf8;
+            padding-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+        }
+
+        .skill-chip {
+            background: #e9f0fa;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.9rem;
+            color: #1d4a89;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .skill-chip i {
+            margin-right: 6px;
+            font-size: 0.8rem;
+            color: #3174c0;
+        }
+
+        /* projects static (no live message) */
+        .projects {
+            padding: 1rem 2.5rem 2rem 2.5rem;
+        }
+
+        .project-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            background: #fafdff;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            border: 1px solid #e2ecf7;
+        }
+
+        .project-info h3 {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .project-info p {
+            color: #4a607a;
+            font-size: 0.9rem;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #59748f;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #dbeafe, transparent);
+            margin: 0.5rem 2.5rem;
+        }
+
+        .footer {
+            padding: 1.5rem 2.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            background: #f9fcff;
+            border-top: 1px solid #dde9fb;
+        }
+
+        .contact i {
+            color: #1e4fd9;
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact span {
+            margin-right: 1.8rem;
+            color: #2d4059;
+        }
+
+        .recruiter-note {
+            background: #e3efff;
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            color: #0256b2;
+            font-weight: 500;
+            border: 1px dashed #3b82f6;
+        }
+
+        /* static note */
+        .static-hint {
+            text-align: center;
+            margin: 1rem 2.5rem 0;
+            color: #5e7fa3;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- navigation unchanged (but now static) -->
+        <div class="navbar">
+            <span class="logo"><i class="fas fa-chart-line" style="margin-right: 6px;"></i>Alex Chen · data</span>
+            <div class="nav-links">
+                <a href="#">work</a>
+                <a href="#">stack</a>
+                <a href="#">resume</a>
+                <span class="recruiter-badge"><i class="fas fa-bolt"></i> static portfolio</span>
+            </div>
+        </div>
+
+        <!-- hero identical (no change) -->
+        <div class="hero">
+            <div class="badge-row">
+                <span class="pill"><i class="fas fa-magnifying-glass-chart"></i> analytics engineer</span>
+                <span class="pill"><i class="fas fa-database"></i> 5+ yrs experience</span>
+                <span class="pill"><i class="fas fa-code"></i> SQL · Python · Tableau</span>
+            </div>
+            <h1>Turning data into<br>decisions — static portfolio.</h1>
+            <div class="subhead">Hi recruiters, I’m Alex. Clean, non‑interactive overview of my analytics work, education, and skills.</div>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary"><i class="fas fa-file-pdf"></i> download one‑pager</a>
+                <a href="#" class="btn btn-outline"><i class="fab fa-linkedin"></i> linkedin</a>
+                <a href="#" class="btn btn-outline"><i class="fab fa-github"></i> github</a>
+            </div>
+        </div>
+
+        <!-- metrics unchanged -->
+        <div class="metric-strip">
+            <div class="metric-item"><span class="metric-number">14</span> <div class="metric-label">projects delivered</div></div>
+            <div class="metric-item"><span class="metric-number">8</span> <div class="metric-label">dashboard launches</div></div>
+            <div class="metric-item"><span class="metric-number">5</span> <div class="metric-label">Python packages</div></div>
+            <div class="metric-item"><span class="metric-number">100k+</span> <div class="metric-label">rows processed/day</div></div>
+        </div>
+
+        <!-- STATIC DASHBOARD (replaced charts with pure html/css) -->
+        <div class="dashboard">
+            <div class="section-title">📈 static analysis preview</div>
+            <div class="section-desc">Fixed visual summary — recruiters can scan key trends immediately.</div>
+            <div class="chart-grid">
+                <!-- left card: bar chart simulation (static) -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <span>📊 Monthly active users (stable view)</span>
+                        <span style="color:#1e3a8a; background:#e3edfc; padding:0.2rem 1rem; border-radius:40px;">static</span>
+                    </div>
+                    <div class="static-chart-placeholder">
+                        <div style="display:flex; flex-direction:column; align-items:center;"><div class="bar" style="height:70px;"></div><span class="bar-label">Oct</span></div>
+                        <div style="display:flex; flex-direction:column; align-items:center;"><div class="bar" style="height:90px;"></div><span class="bar-label">Nov</span></div>
+                        <div style="display:flex; flex-direction:column; align-items:center;"><div class="bar" style="height:100px;"></div><span class="bar-label">Dec</span></div>
+                        <div style="display:flex; flex-direction:column; align-items:center;"><div class="bar" style="height:120px;"></div><span class="bar-label">Jan</span></div>
+                        <div style="display:flex; flex-direction:column; align-items:center;"><div class="bar" style="height:130px;"></div><span class="bar-label">Feb</span></div>
+                        <div style="display:flex; flex-direction:column; align-items:center;"><div class="bar" style="height:150px;"></div><span class="bar-label">Mar</span></div>
+                    </div>
+                    <div class="tool-list">
+                        <span class="tool-tag"># timeseries</span>
+                        <span class="tool-tag"># cohort</span>
+                    </div>
+                </div>
+                <!-- right card: doughnut static as legend list -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <span>🛠️ tech stack weighting</span>
+                        <span style="color:#2563eb;">2025</span>
+                    </div>
+                    <div class="doughnut-static">
+                        <div style="width:100px; height:100px; border-radius:50%; background: conic-gradient(#2563eb 0deg 140deg, #1e4fd9 140deg 230deg, #6b93c0 230deg 300deg, #97b9e0 300deg 340deg, #c0d2f0 340deg 360deg);"></div>
+                        <div style="font-size:0.8rem;">
+                            <div><span class="legend-color" style="background:#2563eb;"></span> SQL 38%</div>
+                            <div><span class="legend-color" style="background:#1e4fd9;"></span> Python 30%</div>
+                            <div><span class="legend-color" style="background:#6b93c0;"></span> Tableau 18%</div>
+                            <div><span class="legend-color" style="background:#97b9e0;"></span> R 6%</div>
+                            <div><span class="legend-color" style="background:#c0d2f0;"></span> Excel 8%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ********** NEW: EDUCATION SECTION ********** -->
+        <div class="education-section">
+            <div class="section-title">🎓 education</div>
+            <div class="section-desc">Academic background and continuous learning.</div>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>M.S. in Information Systems</h3>
+                    <div class="meta">Carnegie Mellon University · 2020</div>
+                    <p>Focus: data analytics, machine learning, and database management. Thesis on churn prediction.</p>
+                </div>
+                <div class="edu-card">
+                    <i class="fas fa-university"></i>
+                    <h3>B.B.A. Business Analytics</h3>
+                    <div class="meta">University of Texas at Austin · 2017</div>
+                    <p>Minor in statistics. Graduated cum laude. Capstone: sales forecasting with Tableau.</p>
+                </div>
+                <div class="edu-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certifications</h3>
+                    <div class="meta">Google Data Analytics · 2021</div>
+                    <p>AWS Cloud Practitioner · Tableau Desktop Specialist · Databricks fundamentals.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ********** NEW: DETAILED SKILLS SECTION ********** -->
+        <div class="skills-section">
+            <div class="section-title">⚙️ technical skills</div>
+            <div class="section-desc">Core competencies & proficiency levels for recruiter review.</div>
+            <div class="skills-matrix">
+                <div class="skill-category">
+                    <h4>📋 languages & query</h4>
+                    <div class="skill-items">
+                        <span class="skill-chip"><i class="fas fa-database"></i> SQL (advanced)</span>
+                        <span class="skill-chip"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-chip"><i class="fas fa-calculator"></i> R</span>
+                        <span class="skill-chip">DAX</span>
+                        <span class="skill-chip">MDX</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>📊 visualization</h4>
+                    <div class="skill-items">
+                        <span class="skill-chip">Tableau</span>
+                        <span class="skill-chip">Power BI</span>
+                        <span class="skill-chip">Looker</span>
+                        <span class="skill-chip">matplotlib</span>
+                        <span class="skill-chip">seaborn</span>
+                        <span class="skill-chip">Excel</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>🧠 analysis & stats</h4>
+                    <div class="skill-items">
+                        <span class="skill-chip">A/B testing</span>
+                        <span class="skill-chip">regression</span>
+                        <span class="skill-chip">clustering</span>
+                        <span class="skill-chip">time series</span>
+                        <span class="skill-chip">forecasting</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>☁️ platforms & tools</h4>
+                    <div class="skill-items">
+                        <span class="skill-chip">Snowflake</span>
+                        <span class="skill-chip">AWS (Redshift)</span>
+                        <span class="skill-chip">dbt</span>
+                        <span class="skill-chip">Airflow</span>
+                        <span class="skill-chip">Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- projects (static - no javascript messages) -->
+        <div class="projects">
+            <div class="section-title">📁 featured analysis projects</div>
+            <div class="section-desc">Selection of impactful work — static summaries.</div>
+
+            <div class="project-row">
+                <div class="project-info">
+                    <h3>RFM customer segmentation <span style="font-weight:normal; font-size:0.8rem; color:#3466aa;"> SQL + Python</span></h3>
+                    <p>Clustered 50k transactional records · improved retention by 12%</p>
+                </div>
+                <div class="project-stats">
+                    <div class="stat"><span class="stat-value">92%</span> <span class="stat-label">accuracy</span></div>
+                    <div class="stat"><span class="stat-value">4</span> <span class="stat-label">segments</span></div>
+                </div>
+            </div>
+            <div class="project-row">
+                <div class="project-info">
+                    <h3>Sales pipeline interactive dashboard <span style="font-weight:normal; font-size:0.8rem; color:#3466aa;"> Tableau · Excel</span></h3>
+                    <p>Executive dashboard with forecast & funnel – 200+ daily views</p>
+                </div>
+                <div class="project-stats">
+                    <div class="stat"><span class="stat-value">18%</span> <span class="stat-label">faster close</span></div>
+                    <div class="stat"><span class="stat-value">6</span> <span class="stat-label">filters</span></div>
+                </div>
+            </div>
+            <div class="project-row">
+                <div class="project-info">
+                    <h3>Churn prediction model <span style="font-weight:normal; font-size:0.8rem; color:#3466aa;"> Python (sklearn) · SQL</span></h3>
+                    <p>Logistic regression, feature importance, deployed in streamlit</p>
+                </div>
+                <div class="project-stats">
+                    <div class="stat"><span class="stat-value">0.86</span> <span class="stat-label">auc-roc</span></div>
+                    <div class="stat"><span class="stat-value">9</span> <span class="stat-label">features</span></div>
+                </div>
+            </div>
+            <!-- static hint (no js) -->
+            <div style="background:#f0f5fd; margin-top:18px; padding:0.9rem 1.8rem; border-radius:40px; color:#2a4f7c; font-weight:400; text-align:center; border:1px solid #c3dafe;">
+                <i class="fas fa-eye"></i> full case studies and code samples available on request.
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- footer unchanged -->
+        <div class="footer">
+            <div class="contact">
+                <i class="fas fa-envelope"></i> <span>a.chen@dataportfolio.io</span>
+                <i class="fas fa-phone-alt"></i> <span>(415) 867-5309</span>
+            </div>
+            <div class="recruiter-note">
+                <i class="fas fa-star"></i> open to roles · immediately available
+            </div>
+        </div>
+    </div>
+    <!-- fully static note -->
+    <div style="text-align: center; max-width:1200px; margin: 1rem auto 0; color:#6f8fae; font-size:0.8rem;">✨ static portfolio – education & skills added, no live interaction ✨</div>
+</body>
+</html>
