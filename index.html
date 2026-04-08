@@ -4,249 +4,537 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Amrutha Thalla | Data Analyst Portfolio</title>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+:root {
+  --sky: #38bdf8;
+  --sky-dim: rgba(56,189,248,0.15);
+  --sky-border: rgba(56,189,248,0.25);
+  --bg: #060d1a;
+  --bg2: #0d1b2e;
+  --surface: #111f33;
+  --surface2: #162540;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #e8f0fe;
+  --muted: #7b93b4;
+  --muted2: #4a6480;
+  --accent: #38bdf8;
+  --green: #34d399;
+  --amber: #fbbf24;
 }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.7; }
 
-body {
-    background: #0f172a;
-    color: #fff;
-}
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
 
-/* NAVBAR */
+/* NAV */
 nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 10%;
-    background: #020617;
+  position: sticky; top: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 6%;
+  background: rgba(6,13,26,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
 }
-
-nav h2 {
-    color: #38bdf8;
-}
-
-nav a {
-    color: #fff;
-    margin-left: 20px;
-    text-decoration: none;
-}
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--sky); letter-spacing: 0.3px; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { color: var(--muted); font-size: 13px; text-decoration: none; letter-spacing: 0.3px; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
 
 /* HERO */
 .hero {
-    text-align: center;
-    padding: 80px 20px;
+  padding: 100px 6% 80px;
+  position: relative; overflow: hidden;
 }
-
-.hero h1 {
-    font-size: 40px;
+.hero-glow {
+  position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse at center, rgba(56,189,248,0.08) 0%, transparent 70%);
+  pointer-events: none;
 }
-
-.hero span {
-    color: #38bdf8;
+.hero-grid {
+  display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 60px;
+  max-width: 1100px; margin: 0 auto;
 }
-
-.hero p {
-    margin-top: 10px;
-    color: #cbd5f5;
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--sky-dim); color: var(--sky);
+  border: 1px solid var(--sky-border);
+  font-size: 12px; font-family: 'DM Mono', monospace; letter-spacing: 0.5px;
+  padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
 }
+.hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: 52px; line-height: 1.1; font-weight: 400; margin-bottom: 14px; }
+.hero h1 em { font-style: italic; color: var(--sky); }
+.hero-sub { color: var(--muted); font-size: 15px; margin-bottom: 32px; max-width: 480px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--sky); color: #060d1a;
+  padding: 11px 24px; border-radius: 8px;
+  font-size: 13px; font-weight: 500; text-decoration: none; letter-spacing: 0.3px;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; }
+.btn-outline {
+  background: transparent; color: var(--text);
+  padding: 11px 24px; border-radius: 8px;
+  font-size: 13px; border: 1px solid var(--border2);
+  text-decoration: none; transition: border-color 0.2s;
+}
+.btn-outline:hover { border-color: var(--sky); color: var(--sky); }
+.hero-stats { display: flex; flex-direction: column; gap: 10px; }
+.stat-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px 20px; text-align: center; min-width: 120px;
+}
+.stat-num { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--sky); }
+.stat-label { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 2px; }
 
 /* SECTION */
-section {
-    padding: 60px 10%;
+.section { padding: 72px 6%; border-top: 1px solid var(--border); }
+.section-max { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--sky); margin-bottom: 10px;
 }
+.section-title { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; margin-bottom: 32px; }
 
-h2 {
-    margin-bottom: 20px;
-    color: #38bdf8;
-}
+/* ABOUT */
+.about-text { color: var(--muted); font-size: 16px; line-height: 1.9; max-width: 700px; }
 
-/* CARDS */
-.card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    transition: 0.3s;
+/* EDUCATION */
+.edu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.edu-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; position: relative; overflow: hidden;
+  transition: border-color 0.2s;
 }
-
-.card:hover {
-    transform: translateY(-5px);
+.edu-card:hover { border-color: var(--border2); }
+.edu-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--sky), transparent);
 }
+.edu-badge {
+  display: inline-block; background: rgba(52,211,153,0.12); color: var(--green);
+  border: 1px solid rgba(52,211,153,0.25); font-size: 10px;
+  font-family: 'DM Mono', monospace; padding: 3px 9px; border-radius: 4px; margin-bottom: 14px;
+}
+.edu-degree { font-size: 15px; font-weight: 500; margin-bottom: 6px; line-height: 1.4; }
+.edu-school { color: var(--sky); font-size: 13px; margin-bottom: 4px; }
+.edu-year { color: var(--muted2); font-size: 12px; font-family: 'DM Mono', monospace; margin-bottom: 10px; }
+.edu-detail { color: var(--muted); font-size: 13px; line-height: 1.6; }
 
 /* SKILLS */
-.skills span {
-    display: inline-block;
-    background: #38bdf8;
-    color: black;
-    padding: 6px 10px;
-    margin: 5px;
-    border-radius: 6px;
-    font-size: 14px;
+.skills-categories { display: flex; flex-direction: column; gap: 20px; }
+.skill-row { display: flex; gap: 20px; align-items: flex-start; }
+.skill-cat { font-size: 11px; font-family: 'DM Mono', monospace; letter-spacing: 0.5px; color: var(--muted2); width: 140px; flex-shrink: 0; padding-top: 6px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+  background: var(--sky-dim); color: var(--sky);
+  border: 1px solid var(--sky-border);
+  padding: 5px 12px; border-radius: 6px; font-size: 13px;
+}
+.skill-tag.neutral {
+  background: rgba(123,147,180,0.08); color: var(--muted);
+  border-color: rgba(123,147,180,0.15);
 }
 
 /* PROJECT */
-.project {
-    border-left: 4px solid #38bdf8;
+.proj-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; overflow: hidden;
 }
+.proj-header { padding: 32px 32px 0; }
+.proj-header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin-bottom: 12px; }
+.proj-title-row { display: flex; align-items: center; gap: 10px; }
+.proj-title { font-family: 'DM Serif Display', serif; font-size: 26px; font-weight: 400; }
+.proj-complete { background: rgba(52,211,153,0.12); color: var(--green); border: 1px solid rgba(52,211,153,0.25); font-size: 11px; font-family: 'DM Mono', monospace; padding: 3px 9px; border-radius: 4px; }
+.proj-desc { color: var(--muted); font-size: 14px; line-height: 1.8; max-width: 700px; margin-bottom: 20px; }
+.proj-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+.proj-tag { background: var(--bg2); color: var(--muted); border: 1px solid var(--border2); font-size: 12px; font-family: 'DM Mono', monospace; padding: 4px 10px; border-radius: 4px; }
 
-/* BUTTON */
-.btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #38bdf8;
-    color: black;
-    margin-top: 10px;
-    text-decoration: none;
-    border-radius: 6px;
+/* project modules */
+.proj-modules { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--border); }
+.proj-module {
+  padding: 20px; border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 6px;
 }
+.proj-module:last-child { border-right: none; }
+.module-icon { font-size: 18px; margin-bottom: 4px; }
+.module-name { font-size: 13px; font-weight: 500; color: var(--text); }
+.module-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* dataset + insights */
+.proj-lower { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
+.proj-dataset { padding: 24px 28px; border-right: 1px solid var(--border); }
+.proj-insights { padding: 24px 28px; }
+.lower-title { font-size: 11px; font-family: 'DM Mono', monospace; letter-spacing: 1px; color: var(--muted2); text-transform: uppercase; margin-bottom: 14px; }
+.dataset-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.dataset-row:last-child { border-bottom: none; }
+.dataset-key { color: var(--muted); }
+.dataset-val { color: var(--sky); font-family: 'DM Mono', monospace; }
+.insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+.insight-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sky); flex-shrink: 0; margin-top: 6px; }
+
+/* proj footer */
+.proj-footer { padding: 20px 32px; border-top: 1px solid var(--border); background: var(--bg2); display: flex; align-items: center; justify-content: space-between; flex-wrap: gap: 12px; }
+.proj-footer-links { display: flex; gap: 12px; }
+.proj-link { display: inline-flex; align-items: center; gap: 6px; color: var(--sky); text-decoration: none; font-size: 13px; font-family: 'DM Mono', monospace; padding: 9px 18px; border: 1px solid var(--sky-border); border-radius: 6px; background: var(--sky-dim); transition: opacity 0.2s; }
+.proj-link:hover { opacity: 0.8; }
+.proj-future { display: flex; flex-wrap: wrap; gap: 6px; }
+.future-tag { font-size: 11px; color: var(--muted2); background: var(--surface2); border: 1px solid var(--border); padding: 3px 10px; border-radius: 4px; font-family: 'DM Mono', monospace; }
+
+/* EXPERIENCE */
+.exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.exp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.exp-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+.exp-place { color: var(--sky); font-size: 13px; margin-bottom: 4px; }
+.exp-period { color: var(--muted2); font-size: 12px; font-family: 'DM Mono', monospace; margin-bottom: 14px; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.exp-bullets li { font-size: 13px; color: var(--muted); padding-left: 14px; position: relative; line-height: 1.5; }
+.exp-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--muted2); }
+.exp-env { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 14px; }
+.env-tag { font-size: 11px; color: var(--muted2); background: var(--bg); border: 1px solid var(--border); padding: 2px 8px; border-radius: 3px; font-family: 'DM Mono', monospace; }
+
+/* CONTACT */
+.contact-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+.contact-chip {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 18px; text-decoration: none; color: inherit;
+  transition: border-color 0.2s;
+}
+.contact-chip:hover { border-color: var(--sky); }
+.chip-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--sky-dim); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--sky); font-weight: 500; font-family: 'DM Mono', monospace; }
+.chip-label { font-size: 11px; color: var(--muted2); letter-spacing: 0.3px; }
+.chip-val { font-size: 13px; font-weight: 500; color: var(--text); }
 
 /* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #020617;
-    margin-top: 40px;
-}
+footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 1px solid var(--border); color: var(--muted2); font-size: 12px; font-family: 'DM Mono', monospace; }
 
 /* RESPONSIVE */
-@media(max-width:768px){
-    nav {
-        flex-direction: column;
-        text-align: center;
-    }
+@media(max-width:900px){
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: row; }
+  .edu-grid { grid-template-columns: 1fr 1fr; }
+  .proj-modules { grid-template-columns: repeat(3,1fr); }
+  .proj-lower { grid-template-columns: 1fr; }
+  .proj-dataset { border-right: none; border-bottom: 1px solid var(--border); }
+  .exp-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:580px){
+  .hero h1 { font-size: 36px; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .proj-modules { grid-template-columns: 1fr 1fr; }
+  .skill-row { flex-direction: column; gap: 8px; }
+  .skill-cat { width: auto; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
 <nav>
-    <h2>Amrutha</h2>
-    <div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
+  <span class="nav-logo">Amrutha</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-    <h1>Hi, I'm <span>Amrutha Thalla</span></h1>
-    <p>Data Analyst | Data Science | Generative AI</p>
-    <p>Turning Data into Insights </p>
-</div>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge">Available for opportunities</div>
+      <h1>Hi, I'm<br><em>Amrutha Thalla</em></h1>
+      <p class="hero-sub">Data Analyst · Data Scientist · Generative AI Enthusiast — turning raw data into real-world impact.</p>
+      <div class="hero-btns">
+        <a href="https://amruthathallaportfolio.netlify.app" target="_blank" class="btn-primary">View Portfolio</a>
+        <a href="https://github.com/amruthathalla" target="_blank" class="btn-outline">GitHub</a>
+        <a href="https://www.linkedin.com/in/amrutha-varshini-thalla-3688a23a2" target="_blank" class="btn-outline">LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-num">1.3K+</div><div class="stat-label">Records analysed</div></div>
+      <div class="stat-box"><div class="stat-num">5</div><div class="stat-label">Tools integrated</div></div>
+      <div class="stat-box"><div class="stat-num">M.S.</div><div class="stat-label">Indiana Tech, USA</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
-<section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>
-            Data Analytics professional with a Master’s in Information Systems and hands-on experience 
-            in Python, SQL, Machine Learning, and Data Visualization. Passionate about solving real-world 
-            problems using data and building intelligent systems with AI and GenAI.
-        </p>
+<section class="section" id="about">
+  <div class="section-max">
+    <div class="section-label">01 / about</div>
+    <h2 class="section-title">Who I am</h2>
+    <p class="about-text">Data Analytics professional with a Master's in Information Systems and hands-on experience across the full data lifecycle — wrangling, analysis, visualization, and machine learning. Proficient in Python, SQL, and Power BI, with a strong ability to transform complex data into actionable business insights. Backed by a solid foundation in software engineering and cloud technologies, with ongoing focus on NLP and Generative AI.</p>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-max">
+    <div class="section-label">02 / education</div>
+    <h2 class="section-title">Academic background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <span class="edu-badge">IN PROGRESS</span>
+        <p class="edu-degree">Full Stack Data Science with GenAI &amp; Agentic AI</p>
+        <p class="edu-school">Naresh i Technologies</p>
+        <p class="edu-detail">Hands-on training in data analysis, machine learning, LLMs, LangChain, and agentic AI application development.</p>
+      </div>
+      <div class="edu-card">
+        <p class="edu-degree">Master of Science — Information Systems</p>
+        <p class="edu-school">Indiana Institute of Technology, Fort Wayne, USA</p>
+        <p class="edu-year">Aug 2023 – May 2025</p>
+        <p class="edu-detail">Focus areas: Data Management, Cloud Computing, System Architecture.</p>
+      </div>
+      <div class="edu-card">
+        <p class="edu-degree">B.Tech — Computer Science &amp; Engineering</p>
+        <p class="edu-school">JNTUH, India</p>
+        <p class="edu-year">2018</p>
+        <p class="edu-detail">Foundation in algorithms, databases, object-oriented programming, and software engineering principles.</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="card skills">
-        <span>Python</span>
-        <span>SQL</span>
-        <span>Power BI</span>
-        <span>Pandas</span>
-        <span>NumPy</span>
-        <span>Matplotlib</span>
-        <span>Seaborn</span>
-        <span>Scikit-learn</span>
-        <span>Machine Learning</span>
-        <span>Deep Learning</span>
-        <span>NLP</span>
-        <span>LLMs</span>
-        <span>Generative AI</span>
-        <span>LangChain</span>
-        <span>Azure</span>
-        <span>Docker</span>
-        <span>Git</span>
-        <span>Matplotlib</span>
+<section class="section" id="skills">
+  <div class="section-max">
+    <div class="section-label">03 / skills</div>
+    <h2 class="section-title">Technical toolkit</h2>
+    <div class="skills-categories">
+      <div class="skill-row">
+        <span class="skill-cat">AI &amp; Data Science</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">LLMs</span>
+          <span class="skill-tag">Generative AI</span>
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">OpenAI API</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Programming</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag neutral">C# / .NET Core</span>
+          <span class="skill-tag neutral">JavaScript</span>
+          <span class="skill-tag neutral">HTML / CSS</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Data &amp; Analysis</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag neutral">Matplotlib</span>
+          <span class="skill-tag neutral">Seaborn</span>
+          <span class="skill-tag neutral">Power BI</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Cloud &amp; Infra</span>
+        <div class="skill-tags">
+          <span class="skill-tag neutral">Azure</span>
+          <span class="skill-tag neutral">Docker</span>
+          <span class="skill-tag neutral">Git</span>
+          <span class="skill-tag neutral">CI/CD</span>
+          <span class="skill-tag neutral">REST APIs</span>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-    <h2>Projects</h2>
+<section class="section" id="projects">
+  <div class="section-max">
+    <div class="section-label">04 / projects</div>
+    <h2 class="section-title">Featured project</h2>
 
-    <div class="card project">
-        <h3>Healthcare Insurance Cost Analysis</h3>
-        <p>
-            End-to-end data analytics project using Excel, Power BI, SQL, Python, and Machine Learning.
-        </p>
+    <div class="proj-card">
+      <!-- header -->
+      <div class="proj-header">
+        <div class="proj-header-top">
+          <div>
+            <div class="proj-title-row">
+              <h3 class="proj-title">Healthcare Insurance Cost Analysis &amp; Prediction</h3>
+              <span class="proj-complete">Completed</span>
+            </div>
+          </div>
+        </div>
+        <p class="proj-desc">A complete end-to-end Data Analytics + Machine Learning project that analyses 1,300+ healthcare insurance records to identify key cost drivers and predict medical charges. Integrates five distinct tools and technologies delivering a full-stack analytics solution from raw CSV to deployed Streamlit web app.</p>
+        <div class="proj-stack">
+          <span class="proj-tag">Python 3.10</span>
+          <span class="proj-tag">Pandas</span>
+          <span class="proj-tag">NumPy</span>
+          <span class="proj-tag">Scikit-learn</span>
+          <span class="proj-tag">Streamlit</span>
+          <span class="proj-tag">SQL (MySQL)</span>
+          <span class="proj-tag">Power BI</span>
+          <span class="proj-tag">Excel</span>
+          <span class="proj-tag">Jupyter Notebook</span>
+        </div>
+      </div>
 
-        <ul>
-            <li>Built Power BI & Excel dashboards</li>
-            <li>Performed SQL data analysis</li>
-            <li>Developed ML model for cost prediction</li>
-            <li>Created Streamlit app for real-time predictions</li>
-        </ul>
+      <!-- modules -->
+      <div class="proj-modules">
+        <div class="proj-module">
+          <div class="module-icon">📊</div>
+          <div class="module-name">EDA</div>
+          <div class="module-desc">Exploratory analysis, preprocessing, feature engineering (BMI Category, Age Band, High-Risk Flag)</div>
+        </div>
+        <div class="proj-module">
+          <div class="module-icon">🗄️</div>
+          <div class="module-name">SQL Analysis</div>
+          <div class="module-desc">Aggregations, business insight queries, high-risk segment identification</div>
+        </div>
+        <div class="proj-module">
+          <div class="module-icon">📈</div>
+          <div class="module-name">Dashboards</div>
+          <div class="module-desc">Interactive Power BI &amp; Excel dashboards with KPI cards, pivot analysis, segment filters</div>
+        </div>
+        <div class="proj-module">
+          <div class="module-icon">🧠</div>
+          <div class="module-name">ML Model</div>
+          <div class="module-desc">Predictive model for insurance charges — raw categorical input via pipeline, fallback encoder</div>
+        </div>
+        <div class="proj-module">
+          <div class="module-icon">🌐</div>
+          <div class="module-name">Streamlit App</div>
+          <div class="module-desc">Dataset explorer, visual insights, and real-time insurance cost predictor</div>
+        </div>
+      </div>
 
-        <p><strong>Key Insights:</strong></p>
-        <ul>
-            <li>Smokers have highest charges</li>
-            <li>Obesity increases cost</li>
-            <li>Charges increase with age</li>
-        </ul>
+      <!-- dataset + insights -->
+      <div class="proj-lower">
+        <div class="proj-dataset">
+          <div class="lower-title">Dataset features</div>
+          <div class="dataset-row"><span class="dataset-key">age</span><span class="dataset-val">Age of individual</span></div>
+          <div class="dataset-row"><span class="dataset-key">sex</span><span class="dataset-val">Gender (male / female)</span></div>
+          <div class="dataset-row"><span class="dataset-key">bmi</span><span class="dataset-val">Body Mass Index</span></div>
+          <div class="dataset-row"><span class="dataset-key">children</span><span class="dataset-val">Number of dependents</span></div>
+          <div class="dataset-row"><span class="dataset-key">smoker</span><span class="dataset-val">Smoking status</span></div>
+          <div class="dataset-row"><span class="dataset-key">region</span><span class="dataset-val">Residential region</span></div>
+          <div class="dataset-row"><span class="dataset-key">charges</span><span class="dataset-val">Medical insurance cost ← target</span></div>
+        </div>
+        <div class="proj-insights">
+          <div class="lower-title">Key insights</div>
+          <div class="insight-item"><div class="insight-dot"></div>Smokers have significantly higher insurance costs compared to non-smokers — the single strongest predictor</div>
+          <div class="insight-item"><div class="insight-dot"></div>Higher BMI is a strong predictor of increased medical expenses</div>
+          <div class="insight-item"><div class="insight-dot"></div>Charges increase with age — a consistent positive correlation</div>
+          <div class="insight-item"><div class="insight-dot"></div>Identified high-risk segment (smoker + obese) for targeted insurance analysis</div>
+          <div class="insight-item"><div class="insight-dot"></div>Region has minimal impact on charges compared to lifestyle factors</div>
+        </div>
+      </div>
 
-        <a href="https://github.com/amruthathalla" target="_blank" class="btn">View Project</a>
+      <!-- footer -->
+      <div class="proj-footer" style="padding:20px 32px;border-top:1px solid var(--border);background:var(--bg2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div class="proj-footer-links">
+          <a href="https://github.com/amruthathalla/HealthcareInsurance" target="_blank" class="proj-link">&#128279; View on GitHub</a>
+        </div>
+        <div>
+          <div style="font-size:11px;font-family:'DM Mono',monospace;color:var(--muted2);letter-spacing:0.5px;margin-bottom:6px;text-transform:uppercase;">Planned improvements</div>
+          <div class="proj-future">
+            <span class="future-tag">XGBoost / Random Forest</span>
+            <span class="future-tag">R² + RMSE metrics</span>
+            <span class="future-tag">Streamlit Cloud deploy</span>
+            <span class="future-tag">User auth</span>
+            <span class="future-tag">Real-time DB</span>
+          </div>
+        </div>
+      </div>
     </div>
-
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section>
-    <h2>Experience</h2>
-
-    <div class="card">
-        <h3>Data Science & GenAI Trainee</h3>
-        <p>Naresh i Technologies (2025–Present)</p>
-        <p>Worked on ML, NLP, and Generative AI applications.</p>
+<section class="section" id="experience">
+  <div class="section-max">
+    <div class="section-label">05 / experience</div>
+    <h2 class="section-title">Work history</h2>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <p class="exp-title">Full Stack Data Science &amp; GenAI Trainee</p>
+        <p class="exp-place">Naresh i Technologies</p>
+        <p class="exp-period">Dec 2025 – Present</p>
+        <ul class="exp-bullets">
+          <li>Data cleaning, preprocessing, and exploratory analysis using Pandas &amp; NumPy</li>
+          <li>Built and evaluated ML models for classification and prediction tasks</li>
+          <li>Applied NLP techniques for text processing and embedding generation</li>
+          <li>Developed GenAI apps using LLMs, LangChain, and OpenAI APIs</li>
+          <li>End-to-end data science workflows including model building and deployment</li>
+        </ul>
+        <div class="exp-env">
+          <span class="env-tag">Python</span><span class="env-tag">Scikit-learn</span><span class="env-tag">TensorFlow</span><span class="env-tag">NLP</span><span class="env-tag">LangChain</span><span class="env-tag">OpenAI API</span><span class="env-tag">Git</span>
+        </div>
+      </div>
+      <div class="exp-card">
+        <p class="exp-title">Software Engineer</p>
+        <p class="exp-place">Cortracker Inc</p>
+        <p class="exp-period">Feb 2025 – Nov 2025</p>
+        <ul class="exp-bullets">
+          <li>Designed and optimized SQL queries and stored procedures for reporting</li>
+          <li>Built HR and CRM dashboards to support data-driven decision-making</li>
+          <li>Developed REST APIs for seamless data flow across systems</li>
+          <li>Collaborated with stakeholders to translate requirements into analytics solutions</li>
+          <li>Improved database performance and ensured efficient data handling</li>
+        </ul>
+        <div class="exp-env">
+          <span class="env-tag">SQL Server</span><span class="env-tag">ASP.NET Core</span><span class="env-tag">C#</span><span class="env-tag">Angular</span><span class="env-tag">REST APIs</span><span class="env-tag">Azure DevOps</span>
+        </div>
+      </div>
     </div>
-
-    <div class="card">
-        <h3>Software Engineer</h3>
-        <p>Cortracker Inc (2025)</p>
-        <p>Built APIs, dashboards, and optimized SQL queries.</p>
-    </div>
-
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-        <p>📧 thallaamrutha5@gmail.com</p>
-        <p>📞 +91 9063289212</p>
-        <p>
-            <a href="https://www.linkedin.com/in/amrutha-varshini-thalla-3688a23a2" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/amruthathalla" target="_blank">GitHub</a>
-        </p>
+<section class="section" id="contact">
+  <div class="section-max">
+    <div class="section-label">06 / contact</div>
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-grid">
+      <a href="mailto:thallaamrutha5@gmail.com" class="contact-chip">
+        <div class="chip-icon">✉</div>
+        <div><div class="chip-label">Email</div><div class="chip-val">thallaamrutha5@gmail.com</div></div>
+      </a>
+      <a href="tel:+919063289212" class="contact-chip">
+        <div class="chip-icon">☏</div>
+        <div><div class="chip-label">Phone</div><div class="chip-val">+91 9063289212</div></div>
+      </a>
+      <a href="https://www.linkedin.com/in/amrutha-varshini-thalla-3688a23a2" target="_blank" class="contact-chip">
+        <div class="chip-icon">in</div>
+        <div><div class="chip-label">LinkedIn</div><div class="chip-val">amrutha-varshini-thalla</div></div>
+      </a>
+      <a href="https://github.com/amruthathalla" target="_blank" class="contact-chip">
+        <div class="chip-icon">gh</div>
+        <div><div class="chip-label">GitHub</div><div class="chip-val">amruthathalla</div></div>
+      </a>
+      <a href="https://amruthathallaportfolio.netlify.app" target="_blank" class="contact-chip">
+        <div class="chip-icon">↗</div>
+        <div><div class="chip-label">Portfolio</div><div class="chip-val">amruthathallaportfolio.netlify.app</div></div>
+      </a>
     </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 Amrutha Thalla | Portfolio</p>
-</footer>
+<footer>© 2026 Amrutha Thalla &nbsp;·&nbsp; amruthathallaportfolio.netlify.app</footer>
 
 </body>
 </html>
