@@ -26,7 +26,6 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.7; }
-
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
@@ -77,7 +76,7 @@ nav {
 .section-max { max-width: 1100px; margin: 0 auto; }
 .section-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
 .section-title { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; margin-bottom: 32px; }
-.section-title-sub { color: var(--muted); font-size: 14px; margin-top: -22px; margin-bottom: 32px; max-width: 600px; }
+.section-title-sub { color: var(--muted); font-size: 14px; margin-top: -22px; margin-bottom: 32px; max-width: 650px; }
 
 .about-text { color: var(--muted); font-size: 16px; line-height: 1.9; max-width: 700px; }
 
@@ -116,6 +115,7 @@ nav {
 
 .proj-modules { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--border); }
 .proj-modules.cols-4 { grid-template-columns: repeat(4,1fr); }
+.proj-modules.cols-3 { grid-template-columns: repeat(3,1fr); }
 .proj-module { padding: 20px; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
 .proj-module:last-child { border-right: none; }
 .module-icon { font-size: 18px; margin-bottom: 4px; }
@@ -133,6 +133,7 @@ nav {
 .insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--muted); line-height: 1.5; }
 .insight-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sky); flex-shrink: 0; margin-top: 6px; }
 .insight-dot.violet { background: var(--violet); }
+.insight-dot.amber { background: var(--amber); }
 
 .proj-footer { padding: 20px 32px; border-top: 1px solid var(--border); background: var(--bg2); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .proj-footer-links { display: flex; gap: 12px; }
@@ -140,6 +141,14 @@ nav {
 .proj-link:hover { opacity: 0.8; }
 .proj-future { display: flex; flex-wrap: wrap; gap: 6px; }
 .future-tag { font-size: 11px; color: var(--muted2); background: var(--surface2); border: 1px solid var(--border); padding: 3px 10px; border-radius: 4px; font-family: 'DM Mono', monospace; }
+
+/* Compact cards for "Additional Projects" */
+.proj-compact { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 14px; }
+.proj-compact-title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.proj-compact-title { font-size: 17px; font-weight: 500; }
+.proj-compact-desc { color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 12px; }
+.proj-compact-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.proj-compact-stack { display: flex; flex-wrap: wrap; gap: 5px; }
 
 .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .exp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
@@ -166,7 +175,7 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
   .hero-stats { flex-direction: row; }
   .edu-grid { grid-template-columns: 1fr 1fr; }
   .proj-modules { grid-template-columns: repeat(3,1fr); }
-  .proj-modules.cols-4 { grid-template-columns: repeat(2,1fr); }
+  .proj-modules.cols-4, .proj-modules.cols-3 { grid-template-columns: repeat(2,1fr); }
   .proj-lower { grid-template-columns: 1fr; }
   .proj-dataset { border-right: none; border-bottom: 1px solid var(--border); }
   .exp-grid { grid-template-columns: 1fr; }
@@ -174,8 +183,7 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
 @media(max-width:580px){
   .hero h1 { font-size: 36px; }
   .edu-grid { grid-template-columns: 1fr; }
-  .proj-modules { grid-template-columns: 1fr 1fr; }
-  .proj-modules.cols-4 { grid-template-columns: 1fr 1fr; }
+  .proj-modules, .proj-modules.cols-4, .proj-modules.cols-3 { grid-template-columns: 1fr 1fr; }
   .skill-row { flex-direction: column; gap: 8px; }
   .skill-cat { width: auto; }
 }
@@ -201,7 +209,7 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
     <div>
       <div class="hero-badge">Available for opportunities</div>
       <h1>Hi, I'm<br><em>Amrutha Thalla</em></h1>
-      <p class="hero-sub">Generative AI &amp; NLP enthusiast — building retrieval, fine-tuning, and language model systems — with a foundation in data analysis and data science.</p>
+      <p class="hero-sub">Generative AI &amp; Agentic AI builder — RAG, multi-agent systems, fine-tuning, and applied comparisons across frameworks — with a data analyst foundation underneath.</p>
       <div class="hero-btns">
         <a href="https://github.com/amruthathalla/GEN-AI-Projects" target="_blank" class="btn-primary">View GenAI Projects</a>
         <a href="https://github.com/amruthathalla" target="_blank" class="btn-outline">GitHub</a>
@@ -209,8 +217,8 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">GenAI / ML projects</div></div>
-      <div class="stat-box"><div class="stat-num">RAG</div><div class="stat-label">+ LoRA fine-tuning</div></div>
+      <div class="stat-box"><div class="stat-num">9</div><div class="stat-label">GenAI / ML projects</div></div>
+      <div class="stat-box"><div class="stat-num">RAG · Agents</div><div class="stat-label">+ Fine-Tuning</div></div>
       <div class="stat-box"><div class="stat-num">M.S.</div><div class="stat-label">Indiana Tech, USA</div></div>
     </div>
   </div>
@@ -220,7 +228,7 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
   <div class="section-max">
     <div class="section-label">01 / about</div>
     <h2 class="section-title">Who I am</h2>
-    <p class="about-text">I'm focused on Generative AI and NLP — specifically retrieval-augmented generation, parameter-efficient fine-tuning (LoRA), and how language models decide what knowledge to rely on. My background is in Information Systems (M.S., Indiana Institute of Technology), which gave me an entry point into this through the field's older questions of how knowledge is organized and made findable, rather than through model architecture first. Alongside GenAI work, I have a solid foundation in data analysis, Python, SQL, and machine learning, and hands-on experience with the full data lifecycle — wrangling, analysis, visualization, and modeling.</p>
+    <p class="about-text">I build with Generative AI — retrieval-augmented generation, agentic systems, and parameter-efficient fine-tuning. My background is in Information Systems (M.S., Indiana Institute of Technology), which gave me an entry point into NLP through the field's older questions of how knowledge is organized and made findable, rather than through model architecture first. I learn by building, comparing, and reporting what actually happened — several of my projects deliberately implement the same task two ways, specifically to surface real differences rather than assume one approach represents a whole technique. Alongside GenAI work, I have a solid foundation in data analysis, Python, SQL, and machine learning.</p>
   </div>
 </section>
 
@@ -233,7 +241,7 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
         <span class="edu-badge">IN PROGRESS</span>
         <p class="edu-degree">Full Stack Data Science with GenAI &amp; Agentic AI</p>
         <p class="edu-school">Naresh i Technologies</p>
-        <p class="edu-detail">Hands-on training in data analysis, machine learning, LLMs, LangChain, and agentic AI application development.</p>
+        <p class="edu-detail">Hands-on training in data analysis, machine learning, LLMs, LangChain/LangGraph, RAG, fine-tuning, and agentic AI application development.</p>
       </div>
       <div class="edu-card">
         <p class="edu-degree">Master of Science — Information Systems</p>
@@ -257,14 +265,15 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
     <h2 class="section-title">Technical toolkit</h2>
     <div class="skills-categories">
       <div class="skill-row">
-        <span class="skill-cat">GenAI &amp; NLP</span>
+        <span class="skill-cat">GenAI &amp; Agentic AI</span>
         <div class="skill-tags">
           <span class="skill-tag">RAG</span>
-          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">LangChain / LangGraph</span>
+          <span class="skill-tag">CrewAI</span>
+          <span class="skill-tag">phidata</span>
           <span class="skill-tag">LoRA Fine-Tuning</span>
           <span class="skill-tag">Hugging Face</span>
           <span class="skill-tag">Vector Databases</span>
-          <span class="skill-tag">OpenAI / Groq APIs</span>
           <span class="skill-tag">Prompt Engineering</span>
         </div>
       </div>
@@ -303,13 +312,14 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
   <div class="section-max">
     <div class="section-label">04 / projects</div>
     <h2 class="section-title">Featured projects</h2>
-    <p class="section-title-sub">Generative AI work first, exploring retrieval, fine-tuning, and grounded generation — followed by data analytics and classical ML.</p>
+    <p class="section-title-sub">Five projects below, each demonstrating a genuinely distinct GenAI mechanism. Several are deliberate comparisons — two frameworks, two QA approaches — built to surface real findings rather than a single success story.</p>
 
     <div class="proj-group-label">
-      <span class="proj-group-title">⚡ Generative AI</span>
+      <span class="proj-group-title">⚡ Featured</span>
       <span class="proj-group-line"></span>
     </div>
 
+    <!-- FEATURED 1: RAG papers -->
     <div class="proj-card">
       <div class="proj-header">
         <div class="proj-header-top">
@@ -319,137 +329,113 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
             <span class="proj-complete">Completed</span>
           </div>
         </div>
-        <p class="proj-desc">A retrieval-augmented question-answering system that answers questions about six foundational RAG research papers, grounded in the papers' own text rather than the model's general knowledge — using the method to study the method. Includes source citations and an explicit instruction to admit uncertainty instead of guessing.</p>
+        <p class="proj-desc">A retrieval-augmented Q&amp;A system answering questions about six foundational RAG papers, grounded in the papers' own text rather than the model's general knowledge — using the method to study the method.</p>
         <div class="proj-stack">
           <span class="proj-tag">Python</span>
+          <span class="proj-tag">LangChain</span>
           <span class="proj-tag">sentence-transformers</span>
           <span class="proj-tag">ChromaDB</span>
           <span class="proj-tag">Groq API (Llama 3.1)</span>
           <span class="proj-tag">Streamlit</span>
         </div>
       </div>
-
-      <div class="proj-modules">
-        <div class="proj-module">
-          <div class="module-icon">📄</div>
-          <div class="module-name">Ingest</div>
-          <div class="module-desc">Parse 6 research PDFs into raw text</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">✂️</div>
-          <div class="module-name">Chunk</div>
-          <div class="module-desc">500-word chunks, 50-word overlap</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🧬</div>
-          <div class="module-name">Embed &amp; Store</div>
-          <div class="module-desc">sentence-transformers → ChromaDB</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🔎</div>
-          <div class="module-name">Retrieve</div>
-          <div class="module-desc">Top-k semantic similarity search</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">💬</div>
-          <div class="module-name">Generate</div>
-          <div class="module-desc">Grounded answer + source citations</div>
-        </div>
+      <div class="proj-modules cols-4">
+        <div class="proj-module"><div class="module-icon">✂️</div><div class="module-name">Chunk &amp; Embed</div><div class="module-desc">500-word chunks, 50-word overlap</div></div>
+        <div class="proj-module"><div class="module-icon">🔎</div><div class="module-name">Retrieve</div><div class="module-desc">Top-k semantic similarity search</div></div>
+        <div class="proj-module"><div class="module-icon">💬</div><div class="module-name">Generate</div><div class="module-desc">Grounded answer + source citations</div></div>
+        <div class="proj-module"><div class="module-icon">🛑</div><div class="module-name">Guardrail</div><div class="module-desc">Flags insufficient evidence instead of guessing</div></div>
       </div>
-
       <div class="proj-lower">
-        <div class="proj-dataset">
-          <div class="lower-title">Knowledge base</div>
-          <div class="dataset-row"><span class="dataset-key">Lewis et al. 2020</span><span class="dataset-val">Original RAG paper</span></div>
-          <div class="dataset-row"><span class="dataset-key">Izacard &amp; Grave 2020</span><span class="dataset-val">Fusion-in-Decoder</span></div>
-          <div class="dataset-row"><span class="dataset-key">Gao et al. 2023</span><span class="dataset-val">RAG survey</span></div>
-          <div class="dataset-row"><span class="dataset-key">Asai et al. 2023</span><span class="dataset-val">Self-RAG</span></div>
-          <div class="dataset-row"><span class="dataset-key">Es et al. 2023</span><span class="dataset-val">RAGAS evaluation</span></div>
-          <div class="dataset-row"><span class="dataset-key">2025 survey</span><span class="dataset-val">Recent RAG landscape</span></div>
+        <div class="proj-insights" style="border-right: 1px solid var(--border);">
+          <div class="lower-title">Design decisions</div>
+          <div class="insight-item"><div class="insight-dot violet"></div>Chunk size/overlap directly affected retrieval accuracy</div>
+          <div class="insight-item"><div class="insight-dot violet"></div>Explicit "don't guess" instruction reduces hallucination</div>
         </div>
         <div class="proj-insights">
-          <div class="lower-title">Design decisions</div>
-          <div class="insight-item"><div class="insight-dot violet"></div>Chunk size and overlap directly affected whether retrieval found the right evidence</div>
-          <div class="insight-item"><div class="insight-dot violet"></div>Explicit "don't guess" instruction reduces hallucination by constraining generation to retrieved context</div>
-          <div class="insight-item"><div class="insight-dot violet"></div>Retrieval count (top-k) trades off evidence coverage against noise</div>
+          <div class="lower-title">Tested with</div>
+          <div class="insight-item"><div class="insight-dot"></div>Out-of-scope questions, confirmed correct refusal</div>
         </div>
       </div>
-
       <div class="proj-footer">
-        <div class="proj-footer-links">
-          <a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/rag-papers-project" target="_blank" class="proj-link">&#128279; View on GitHub</a>
-        </div>
-        <div class="proj-future">
-          <span class="future-tag">Re-ranking</span>
-          <span class="future-tag">Quantitative eval set</span>
-        </div>
+        <div class="proj-footer-links"><a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/rag-papers-project" target="_blank" class="proj-link">&#128279; View on GitHub</a></div>
       </div>
     </div>
 
+    <!-- FEATURED 2: CrewAI vs phidata -->
     <div class="proj-card">
       <div class="proj-header">
         <div class="proj-header-top">
           <div class="proj-title-row">
-            <h3 class="proj-title">PDF Chatbot (RAG)</h3>
+            <h3 class="proj-title">Multi-Agent System: CrewAI vs. phidata</h3>
             <span class="proj-genai">GenAI</span>
             <span class="proj-complete">Completed</span>
           </div>
         </div>
-        <p class="proj-desc">A retrieval-augmented chatbot that lets a user upload any PDF and ask questions about its contents, grounded in the document's own text. Generalizes the same chunk → embed → retrieve → generate pipeline to arbitrary, user-supplied documents rather than a fixed, curated knowledge base.</p>
+        <p class="proj-desc">The same two-agent research-and-summarize task built in two different agent frameworks, compared side by side in a Streamlit app — to isolate whether framework choice or tool choice actually drives the difference in output, rather than assuming one implementation represents "agent frameworks" generally.</p>
         <div class="proj-stack">
           <span class="proj-tag">Python</span>
-          <span class="proj-tag">RAG Pipeline</span>
-          <span class="proj-tag">Vector Search</span>
-          <span class="proj-tag">LLM Grounded Generation</span>
+          <span class="proj-tag">CrewAI</span>
+          <span class="proj-tag">phidata</span>
+          <span class="proj-tag">Gemini API</span>
+          <span class="proj-tag">Serper / DuckDuckGo</span>
+          <span class="proj-tag">Streamlit</span>
         </div>
       </div>
-
-      <div class="proj-modules cols-4">
-        <div class="proj-module">
-          <div class="module-icon">📤</div>
-          <div class="module-name">Upload</div>
-          <div class="module-desc">Any user-supplied PDF, parsed on demand</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🧩</div>
-          <div class="module-name">Chunk &amp; Embed</div>
-          <div class="module-desc">Same retrieval approach as the papers project</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🔎</div>
-          <div class="module-name">Retrieve</div>
-          <div class="module-desc">Finds relevant passages per question</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">💬</div>
-          <div class="module-name">Chat</div>
-          <div class="module-desc">Conversational Q&amp;A grounded in the doc</div>
-        </div>
+      <div class="proj-modules cols-3">
+        <div class="proj-module"><div class="module-icon">🔍</div><div class="module-name">Research Agent</div><div class="module-desc">Searches the web for current findings</div></div>
+        <div class="proj-module"><div class="module-icon">✍️</div><div class="module-name">Writer Agent</div><div class="module-desc">No search tool — works only from given findings</div></div>
+        <div class="proj-module"><div class="module-icon">⚖️</div><div class="module-name">Side-by-Side</div><div class="module-desc">Same topic, both frameworks, compared live</div></div>
       </div>
-
       <div class="proj-lower">
-        <div class="proj-dataset">
-          <div class="lower-title">Use case</div>
-          <div class="dataset-row"><span class="dataset-key">Input</span><span class="dataset-val">Any general PDF</span></div>
-          <div class="dataset-row"><span class="dataset-key">Setting</span><span class="dataset-val">Open-ended, user-driven</span></div>
+        <div class="proj-insights" style="border-right: 1px solid var(--border);">
+          <div class="lower-title">Real test result</div>
+          <div class="insight-item"><div class="insight-dot amber"></div>CrewAI + Serper: found real info, conflated two dated events, flagged its own uncertainty correctly</div>
         </div>
         <div class="proj-insights">
-          <div class="lower-title">What it explores</div>
-          <div class="insight-item"><div class="insight-dot violet"></div>How the same retrieval pipeline holds up on arbitrary documents rather than a curated research corpus</div>
-          <div class="insight-item"><div class="insight-dot violet"></div>Real-world applicability of RAG beyond a fixed, controlled knowledge base</div>
+          <div class="lower-title">&nbsp;</div>
+          <div class="insight-item"><div class="insight-dot amber"></div>phidata + DuckDuckGo: found nothing, explicitly said so rather than guessing</div>
         </div>
       </div>
-
       <div class="proj-footer">
-        <div class="proj-footer-links">
-          <a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/pdf-chatbot-rag" target="_blank" class="proj-link">&#128279; View on GitHub</a>
-        </div>
-        <div class="proj-future">
-          <span class="future-tag">Multi-doc support</span>
-        </div>
+        <div class="proj-footer-links"><a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/crewai-research-agent" target="_blank" class="proj-link">&#128279; View on GitHub</a></div>
       </div>
     </div>
 
+    <!-- FEATURED 3: Pandas agent -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-header-top">
+          <div class="proj-title-row">
+            <h3 class="proj-title">LangChain Agent over a Pandas DataFrame</h3>
+            <span class="proj-genai">GenAI</span>
+            <span class="proj-complete">Completed</span>
+          </div>
+        </div>
+        <p class="proj-desc">An agent that decides which Pandas operations to run to answer natural-language questions about a retail sales dataset, tested specifically on multi-step questions — filter, then group, then aggregate, including a nested per-group "top item in each category" query.</p>
+        <div class="proj-stack">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">LangChain</span>
+          <span class="proj-tag">Groq API (Llama 3.3 70B)</span>
+          <span class="proj-tag">Pandas</span>
+          <span class="proj-tag">Streamlit</span>
+        </div>
+      </div>
+      <div class="proj-lower">
+        <div class="proj-insights" style="border-right: 1px solid var(--border);">
+          <div class="lower-title">Real finding</div>
+          <div class="insight-item"><div class="insight-dot amber"></div>An 8B model couldn't reliably follow the agent's exact output format and looped on errors</div>
+        </div>
+        <div class="proj-insights">
+          <div class="lower-title">&nbsp;</div>
+          <div class="insight-item"><div class="insight-dot amber"></div>Switching to a 70B model fixed it immediately — model size affects format-following, not just answer quality</div>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <div class="proj-footer-links"><a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/langchain-pandas-agent" target="_blank" class="proj-link">&#128279; View on GitHub</a></div>
+      </div>
+    </div>
+
+    <!-- FEATURED 4: LoRA -->
     <div class="proj-card">
       <div class="proj-header">
         <div class="proj-header-top">
@@ -459,61 +445,101 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
             <span class="proj-complete">Completed</span>
           </div>
         </div>
-        <p class="proj-desc">Fine-tuned a small open-source LLM (distilgpt2) using LoRA (Low-Rank Adaptation) to consistently answer in a fixed structure, training roughly 0.36% of the model's parameters rather than all of them. Evaluated with a genuine before/after comparison, including questions never seen during training.</p>
+        <p class="proj-desc">Fine-tuned distilgpt2 with LoRA to consistently follow a fixed answer format, training ~0.36% of the model's parameters. Evaluated with a genuine before/after comparison, including questions never seen during training.</p>
         <div class="proj-stack">
           <span class="proj-tag">Python</span>
           <span class="proj-tag">Hugging Face Transformers</span>
           <span class="proj-tag">PEFT / LoRA</span>
-          <span class="proj-tag">Google Colab (T4 GPU)</span>
+          <span class="proj-tag">Google Colab</span>
         </div>
       </div>
-
-      <div class="proj-modules cols-4">
-        <div class="proj-module">
-          <div class="module-icon">🧠</div>
-          <div class="module-name">Base Model</div>
-          <div class="module-desc">distilgpt2 (82M params), frozen</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🪶</div>
-          <div class="module-name">LoRA Adapter</div>
-          <div class="module-desc">~295K trainable params attached to attention layers</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🎯</div>
-          <div class="module-name">Label Masking</div>
-          <div class="module-desc">Loss computed only on answer tokens, not the question</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">⚖️</div>
-          <div class="module-name">Before / After Eval</div>
-          <div class="module-desc">Compared against an untouched base model</div>
-        </div>
-      </div>
-
       <div class="proj-lower">
         <div class="proj-dataset">
           <div class="lower-title">Training setup</div>
           <div class="dataset-row"><span class="dataset-key">Trainable params</span><span class="dataset-val">0.36% of model</span></div>
           <div class="dataset-row"><span class="dataset-key">Training loss</span><span class="dataset-val">~5.2 → &lt;0.1</span></div>
-          <div class="dataset-row"><span class="dataset-key">Dataset size</span><span class="dataset-val">20 examples</span></div>
         </div>
         <div class="proj-insights">
           <div class="lower-title">Key finding</div>
-          <div class="insight-item"><div class="insight-dot violet"></div>The model reliably learned the target <em>format</em>, even on unseen questions</div>
-          <div class="insight-item"><div class="insight-dot violet"></div>It did not reliably learn new <em>facts</em> — a genuine, honestly-reported limitation given the tiny dataset</div>
-          <div class="insight-item"><div class="insight-dot violet"></div>Demonstrates the real difference between teaching a model a response shape vs. its content</div>
+          <div class="insight-item"><div class="insight-dot violet"></div>Learned the target <em>format</em> reliably, even on unseen questions</div>
+          <div class="insight-item"><div class="insight-dot violet"></div>Did not reliably learn new <em>facts</em> — an honest, expected limitation at this scale</div>
         </div>
       </div>
-
       <div class="proj-footer">
-        <div class="proj-footer-links">
-          <a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/llm-finetuning-lora" target="_blank" class="proj-link">&#128279; View on GitHub</a>
+        <div class="proj-footer-links"><a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/llm-finetuning-lora" target="_blank" class="proj-link">&#128279; View on GitHub</a></div>
+      </div>
+    </div>
+
+    <!-- FEATURED 5: QA comparison -->
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-header-top">
+          <div class="proj-title-row">
+            <h3 class="proj-title">Extractive vs. Generative Question Answering</h3>
+            <span class="proj-genai">GenAI</span>
+            <span class="proj-complete">Completed</span>
+          </div>
         </div>
-        <div class="proj-future">
-          <span class="future-tag">Larger dataset</span>
-          <span class="future-tag">Quantitative format scoring</span>
+        <p class="proj-desc">A controlled comparison of extractive QA (a BERT-family model that can only point at existing text spans) against generative QA (LLM, grounded via prompting) on the same source text and questions.</p>
+        <div class="proj-stack">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Hugging Face Transformers</span>
+          <span class="proj-tag">DistilBERT / SQuAD</span>
+          <span class="proj-tag">Groq API (Llama 3.3 70B)</span>
         </div>
+      </div>
+      <div class="proj-lower">
+        <div class="proj-insights" style="border-right: 1px solid var(--border);">
+          <div class="lower-title">Headline finding</div>
+          <div class="insight-item"><div class="insight-dot amber"></div>Extractive QA's confidence score did <strong>not</strong> reliably predict correctness</div>
+        </div>
+        <div class="proj-insights">
+          <div class="lower-title">&nbsp;</div>
+          <div class="insight-item"><div class="insight-dot amber"></div>Wrong answer at moderate confidence (0.43); empty answer at <em>high</em> confidence (0.92) — the worse failure mode of the two</div>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <div class="proj-footer-links"><a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/qa-system-comparison" target="_blank" class="proj-link">&#128279; View on GitHub</a></div>
+      </div>
+    </div>
+
+    <div class="proj-group-label">
+      <span class="proj-group-title">📦 Additional Projects</span>
+      <span class="proj-group-line"></span>
+    </div>
+
+    <div class="proj-compact">
+      <div class="proj-compact-title-row">
+        <span class="proj-compact-title">RAG Chatbot for User-Uploaded PDFs</span>
+        <span class="proj-genai">GenAI</span>
+      </div>
+      <p class="proj-compact-desc">The same retrieval pipeline as the papers project, generalized to arbitrary, user-uploaded documents rather than a fixed, curated knowledge base.</p>
+      <div class="proj-compact-footer">
+        <div class="proj-compact-stack"><span class="proj-tag">Python</span><span class="proj-tag">RAG Pipeline</span><span class="proj-tag">Vector Search</span></div>
+        <a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/pdf-chatbot-rag" target="_blank" class="proj-link">&#128279; GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-compact">
+      <div class="proj-compact-title-row">
+        <span class="proj-compact-title">Stable Diffusion Prompt Engineering Comparison</span>
+        <span class="proj-genai">GenAI</span>
+      </div>
+      <p class="proj-compact-desc">A controlled test of negative prompting and style-modifier keywords on Stable Diffusion, holding the subject constant. Negative prompting produced a clear, visible improvement; style keywords showed little effect on this endpoint — a real, somewhat counterintuitive finding.</p>
+      <div class="proj-compact-footer">
+        <div class="proj-compact-stack"><span class="proj-tag">Python</span><span class="proj-tag">Stability AI API</span><span class="proj-tag">Pillow</span></div>
+        <a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/sd-prompt-comparison" target="_blank" class="proj-link">&#128279; GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-compact">
+      <div class="proj-compact-title-row">
+        <span class="proj-compact-title">SMS Spam Classifier (Classical ML)</span>
+      </div>
+      <p class="proj-compact-desc">A deliberate contrast to the GenAI projects above: TF-IDF + Naive Bayes, included to demonstrate that not every NLP problem needs an LLM. Evaluated with precision/recall rather than accuracy alone, given an 87/13 class imbalance.</p>
+      <div class="proj-compact-footer">
+        <div class="proj-compact-stack"><span class="proj-tag">Python</span><span class="proj-tag">scikit-learn</span><span class="proj-tag">TF-IDF</span></div>
+        <a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/spam-classifier" target="_blank" class="proj-link">&#128279; GitHub</a>
       </div>
     </div>
 
@@ -525,131 +551,33 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
     <div class="proj-card">
       <div class="proj-header">
         <div class="proj-header-top">
-          <div>
-            <div class="proj-title-row">
-              <h3 class="proj-title">Healthcare Insurance Cost Analysis &amp; Prediction</h3>
-              <span class="proj-complete">Completed</span>
-            </div>
-          </div>
-        </div>
-        <p class="proj-desc">A complete end-to-end Data Analytics + Machine Learning project that analyses 1,300+ healthcare insurance records to identify key cost drivers and predict medical charges. Integrates five distinct tools and technologies delivering a full-stack analytics solution from raw CSV to deployed Streamlit web app.</p>
-        <div class="proj-stack">
-          <span class="proj-tag">Python 3.10</span>
-          <span class="proj-tag">Pandas</span>
-          <span class="proj-tag">NumPy</span>
-          <span class="proj-tag">Scikit-learn</span>
-          <span class="proj-tag">Streamlit</span>
-          <span class="proj-tag">SQL (MySQL)</span>
-          <span class="proj-tag">Power BI</span>
-          <span class="proj-tag">Excel</span>
-          <span class="proj-tag">Jupyter Notebook</span>
-        </div>
-      </div>
-
-      <div class="proj-modules">
-        <div class="proj-module">
-          <div class="module-icon">📊</div>
-          <div class="module-name">EDA</div>
-          <div class="module-desc">Exploratory analysis, preprocessing, feature engineering (BMI Category, Age Band, High-Risk Flag)</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🗄️</div>
-          <div class="module-name">SQL Analysis</div>
-          <div class="module-desc">Aggregations, business insight queries, high-risk segment identification</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">📈</div>
-          <div class="module-name">Dashboards</div>
-          <div class="module-desc">Interactive Power BI &amp; Excel dashboards with KPI cards, pivot analysis, segment filters</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🧠</div>
-          <div class="module-name">ML Model</div>
-          <div class="module-desc">Predictive model for insurance charges — raw categorical input via pipeline, fallback encoder</div>
-        </div>
-        <div class="proj-module">
-          <div class="module-icon">🌐</div>
-          <div class="module-name">Streamlit App</div>
-          <div class="module-desc">Dataset explorer, visual insights, and real-time insurance cost predictor</div>
-        </div>
-      </div>
-
-      <div class="proj-lower">
-        <div class="proj-dataset">
-          <div class="lower-title">Dataset features</div>
-          <div class="dataset-row"><span class="dataset-key">age</span><span class="dataset-val">Age of individual</span></div>
-          <div class="dataset-row"><span class="dataset-key">sex</span><span class="dataset-val">Gender (male / female)</span></div>
-          <div class="dataset-row"><span class="dataset-key">bmi</span><span class="dataset-val">Body Mass Index</span></div>
-          <div class="dataset-row"><span class="dataset-key">children</span><span class="dataset-val">Number of dependents</span></div>
-          <div class="dataset-row"><span class="dataset-key">smoker</span><span class="dataset-val">Smoking status</span></div>
-          <div class="dataset-row"><span class="dataset-key">region</span><span class="dataset-val">Residential region</span></div>
-          <div class="dataset-row"><span class="dataset-key">charges</span><span class="dataset-val">Medical insurance cost ← target</span></div>
-        </div>
-        <div class="proj-insights">
-          <div class="lower-title">Key insights</div>
-          <div class="insight-item"><div class="insight-dot"></div>Smokers have significantly higher insurance costs compared to non-smokers — the single strongest predictor</div>
-          <div class="insight-item"><div class="insight-dot"></div>Higher BMI is a strong predictor of increased medical expenses</div>
-          <div class="insight-item"><div class="insight-dot"></div>Charges increase with age — a consistent positive correlation</div>
-          <div class="insight-item"><div class="insight-dot"></div>Identified high-risk segment (smoker + obese) for targeted insurance analysis</div>
-          <div class="insight-item"><div class="insight-dot"></div>Region has minimal impact on charges compared to lifestyle factors</div>
-        </div>
-      </div>
-
-      <div class="proj-footer">
-        <div class="proj-footer-links">
-          <a href="https://github.com/amruthathalla/HealthcareInsurance" target="_blank" class="proj-link">&#128279; View on GitHub</a>
-        </div>
-        <div>
-          <div style="font-size:11px;font-family:'DM Mono',monospace;color:var(--muted2);letter-spacing:0.5px;margin-bottom:6px;text-transform:uppercase;">Planned improvements</div>
-          <div class="proj-future">
-            <span class="future-tag">XGBoost / Random Forest</span>
-            <span class="future-tag">R² + RMSE metrics</span>
-            <span class="future-tag">Streamlit Cloud deploy</span>
-            <span class="future-tag">User auth</span>
-            <span class="future-tag">Real-time DB</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-header">
-        <div class="proj-header-top">
           <div class="proj-title-row">
-            <h3 class="proj-title">SMS Spam Classifier</h3>
+            <h3 class="proj-title">Healthcare Insurance Cost Analysis &amp; Prediction</h3>
             <span class="proj-complete">Completed</span>
           </div>
         </div>
-        <p class="proj-desc">A classical (non-neural) text classifier distinguishing spam from legitimate SMS messages, using TF-IDF features and Multinomial Naive Bayes. Built as a deliberate contrast to the GenAI projects above — a reminder that not every NLP problem needs an LLM, evaluated with precision, recall, and a confusion matrix rather than accuracy alone, given an 87/13 class imbalance.</p>
+        <p class="proj-desc">A complete end-to-end Data Analytics + Machine Learning project analysing 1,300+ healthcare insurance records to identify key cost drivers and predict medical charges, from raw CSV to deployed Streamlit web app.</p>
         <div class="proj-stack">
           <span class="proj-tag">Python</span>
-          <span class="proj-tag">scikit-learn</span>
-          <span class="proj-tag">TF-IDF</span>
-          <span class="proj-tag">Naive Bayes</span>
+          <span class="proj-tag">Pandas</span>
+          <span class="proj-tag">Scikit-learn</span>
+          <span class="proj-tag">Power BI</span>
+          <span class="proj-tag">SQL</span>
+          <span class="proj-tag">Streamlit</span>
         </div>
       </div>
-
       <div class="proj-lower">
-        <div class="proj-dataset">
-          <div class="lower-title">Evaluation</div>
-          <div class="dataset-row"><span class="dataset-key">Accuracy</span><span class="dataset-val">97%</span></div>
-          <div class="dataset-row"><span class="dataset-key">Spam precision</span><span class="dataset-val">0.98</span></div>
-          <div class="dataset-row"><span class="dataset-key">Spam recall</span><span class="dataset-val">0.81</span></div>
+        <div class="proj-insights" style="border-right: 1px solid var(--border);">
+          <div class="lower-title">Key insight</div>
+          <div class="insight-item"><div class="insight-dot"></div>Smokers incur significantly higher charges — the single strongest cost predictor</div>
         </div>
         <div class="proj-insights">
-          <div class="lower-title">Key finding</div>
-          <div class="insight-item"><div class="insight-dot"></div>Model rarely false-flags real messages, but misses ~1 in 5 spam texts — a direct effect of class imbalance</div>
-          <div class="insight-item"><div class="insight-dot"></div>Highlights a real precision/recall tradeoff relevant to deployment decisions</div>
+          <div class="lower-title">&nbsp;</div>
+          <div class="insight-item"><div class="insight-dot"></div>5+ regression models compared; best deployed via Streamlit for real-time estimation</div>
         </div>
       </div>
-
       <div class="proj-footer">
-        <div class="proj-footer-links">
-          <a href="https://github.com/amruthathalla/GEN-AI-Projects/tree/main/spam-classifier" target="_blank" class="proj-link">&#128279; View on GitHub</a>
-        </div>
-        <div class="proj-future">
-          <span class="future-tag">Threshold tuning</span>
-        </div>
+        <div class="proj-footer-links"><a href="https://github.com/amruthathalla/HealthcareInsurance" target="_blank" class="proj-link">&#128279; View on GitHub</a></div>
       </div>
     </div>
 
@@ -666,14 +594,13 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
         <p class="exp-place">Naresh i Technologies</p>
         <p class="exp-period">Dec 2025 – Present</p>
         <ul class="exp-bullets">
-          <li>Data cleaning, preprocessing, and exploratory analysis using Pandas &amp; NumPy</li>
-          <li>Built and evaluated ML models for classification and prediction tasks</li>
-          <li>Applied NLP techniques for text processing and embedding generation</li>
-          <li>Developed GenAI apps using LLMs, LangChain, and OpenAI APIs</li>
-          <li>End-to-end data science workflows including model building and deployment</li>
+          <li>Built and evaluated RAG pipelines, multi-agent systems, and LoRA fine-tuning projects across LangChain, CrewAI, and Hugging Face</li>
+          <li>Built and evaluated supervised ML models for classification and regression across multiple domains</li>
+          <li>Developed GenAI applications using LLMs (OpenAI, Gemini, Groq), LangChain/LangGraph, and RAG pipelines</li>
+          <li>Applied NLP techniques for text processing, embedding generation, and semantic search</li>
         </ul>
         <div class="exp-env">
-          <span class="env-tag">Python</span><span class="env-tag">Scikit-learn</span><span class="env-tag">TensorFlow</span><span class="env-tag">NLP</span><span class="env-tag">LangChain</span><span class="env-tag">OpenAI API</span><span class="env-tag">Git</span>
+          <span class="env-tag">Python</span><span class="env-tag">LangChain</span><span class="env-tag">CrewAI</span><span class="env-tag">Hugging Face</span><span class="env-tag">Scikit-learn</span><span class="env-tag">Git</span>
         </div>
       </div>
       <div class="exp-card">
@@ -681,14 +608,13 @@ footer { text-align: center; padding: 28px; background: var(--bg2); border-top: 
         <p class="exp-place">Cortracker Inc</p>
         <p class="exp-period">Feb 2025 – Nov 2025</p>
         <ul class="exp-bullets">
-          <li>Designed and optimized SQL queries and stored procedures for reporting</li>
-          <li>Built HR and CRM dashboards to support data-driven decision-making</li>
-          <li>Developed REST APIs for seamless data flow across systems</li>
-          <li>Collaborated with stakeholders to translate requirements into analytics solutions</li>
-          <li>Improved database performance and ensured efficient data handling</li>
+          <li>Designed and optimized complex SQL queries and stored procedures for reporting</li>
+          <li>Built internal dashboards for business stakeholders to track KPIs</li>
+          <li>Developed and maintained REST APIs to enable data flow across systems</li>
+          <li>Collaborated cross-functionally to translate requirements into analytics solutions</li>
         </ul>
         <div class="exp-env">
-          <span class="env-tag">SQL Server</span><span class="env-tag">ASP.NET Core</span><span class="env-tag">C#</span><span class="env-tag">Angular</span><span class="env-tag">REST APIs</span><span class="env-tag">Azure DevOps</span>
+          <span class="env-tag">SQL Server</span><span class="env-tag">ASP.NET Core</span><span class="env-tag">C#</span><span class="env-tag">Angular</span><span class="env-tag">Azure DevOps</span>
         </div>
       </div>
     </div>
